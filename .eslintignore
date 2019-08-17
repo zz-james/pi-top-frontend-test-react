@@ -1,0 +1,10 @@
+# Ignore built files
+build/
+dist/
+
+# Ignore coverage and stats files
+coverage/
+stats/
+
+# Ignore 3rd party libraries
+node_modules/
