@@ -1,3 +1,9 @@
+# Notes:
+
+- added airbnb linting rules to keep code standard high, in production would prefer to use prettier <https://prettier.io/>
+
+
+
 # [pi-top](https://pi-top.com) - Frontend technical test
 
 This test is a part of our hiring process at pi-top for frontend positions. It should take you between 3 and 6 hours depending on your experience.
