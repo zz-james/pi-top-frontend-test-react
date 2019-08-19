@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import {Footer} from './footer.jsx'
-// import {showDetail, setUiMode} from './action-creators'
+import { getTodoDetail } from '../actions/async-actions';
 import * as C from '../constants/index';
 
 /**
@@ -80,8 +80,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onToDoClick(id) {
-    // dispatch(setUiMode(C.DETAIL));
-    // dispatch(showDetail(id))
+    dispatch(getTodoDetail(id));
   }
 });
 
