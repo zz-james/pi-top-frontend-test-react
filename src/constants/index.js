@@ -7,6 +7,7 @@ export const SHOW_COMPLETED = 'SHOW_COMPLETED';
 export const SHOW_INCOMPLETE = 'SHOW_INCOMPLETE';
 
 export const SET_UI_MODE = 'SET_UI_MODE';
+export const LOADING = 'LOADING';
 export const LIST = 'LIST';
 export const EDIT = 'EDIT';
 export const DETAIL = 'DETAIL';
