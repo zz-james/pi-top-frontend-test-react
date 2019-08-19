@@ -4,11 +4,8 @@ import PropTypes from 'prop-types';
 import * as AsyncActions from '../actions/async-actions';
 import useMountEffect from '../hooks/hooks';
 
-// import {AddToDo} from './add-to-do.jsx'
-// import {VisibleToDoList} from './visible-to-do-list.jsx'
-// import {Details} from './details.jsx'
-// import {TabBar} from './tab-bar.jsx'
-// import * as C from './constants'
+
+import VisibleToDoList from './Visible-to-do-list';
 
 const ToDoAppWrapped = ({
   getToDos
@@ -16,33 +13,20 @@ const ToDoAppWrapped = ({
   useMountEffect(getToDos);
   return (
     <div>
-      {/* <TabBar /> */}
-
-      {/* {uimode == C.LIST ? (
-        <VisibleToDoList />
-      ) : null}
-
-      {uimode == C.EDIT ? (
-        <AddToDo />
-      ) : null}
-
-      {uimode == C.DETAIL ? (
-        <Details />
-      ) : null} */}
-
+      <VisibleToDoList />
     </div>
-  ) 
+  );
 };
 
 ToDoAppWrapped.propTypes = {
   getToDos: PropTypes.func.isRequired
-}
+};
 
 const mapStateToProps = state => ({
   detail: state.detail
 });
 
-const mapDispatchToProps = dispatch =>({
+const mapDispatchToProps = dispatch => ({
   getToDos: () => {
     dispatch(AsyncActions.getTodos());
   }
