@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
+import * as AsyncActions from '../actions/async-actions';
 import useMountEffect from '../hooks/hooks';
 
 // import {AddToDo} from './add-to-do.jsx'
@@ -9,10 +10,10 @@ import useMountEffect from '../hooks/hooks';
 // import {TabBar} from './tab-bar.jsx'
 // import * as C from './constants'
 
-export const ToDoAppWrapped = ({
-  uimode
+const ToDoAppWrapped = ({
+  getToDos
 }) => {
-  useMountEffect(dispatch())
+  useMountEffect(getToDos);
   return (
     <div>
       {/* <TabBar /> */}
@@ -30,20 +31,26 @@ export const ToDoAppWrapped = ({
       ) : null} */}
 
     </div>
-)};
+  ) 
+};
+
+ToDoAppWrapped.propTypes = {
+  getToDos: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => ({
-  uimode: state.uimode,
   detail: state.detail
 });
 
 const mapDispatchToProps = dispatch =>({
-  onGetToDos: () => ({
-    dispatch(/*action creator lives here*/);
-  })
+  getToDos: () => {
+    dispatch(AsyncActions.getTodos());
+  }
 });
 
-export const ToDoApp = connect(
+const ToDoApp = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ToDoAppWrapped);
+
+export default ToDoApp;
