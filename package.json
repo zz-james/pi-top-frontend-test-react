@@ -8,9 +8,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "lint-js": "eslint --ext .js --ext .jsx --ext .json .",
-    "lint-sass": "sass-lint -v -q",
-    "lint": "npm run lint-js && npm run lint-sass"
+    "lint": "eslint --ext .js --ext .jsx --ext .json ."
   },
   "dependencies": {
     "@bundled-es-modules/uuid": "^3.3.2-rc2",
