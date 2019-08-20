@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Footer from './Footer';
 import Checkbox from './Checkbox';
+import LoadingSpinner from './LoadingSpinner';
 import { getTodoDetail } from '../actions/async-actions';
 import { toggleToDo } from '../actions/actions'
 import * as C from '../constants/index';
@@ -41,15 +42,17 @@ const ToDo = ({
   onToggleTodo,
   title,
   id,
-  isDone
+  isDone,
+  pending
 }) => (
 
   <li className="uk-list">
     <Checkbox
       name={id}
       value="completed"
-      onChange={() => {
-        onToggleTodo(id);
+      disabled={pending}
+      onChange={(name, val) => {
+        onToggleTodo(name, !!val);
       }}
       checked={isDone}
     />
@@ -62,6 +65,10 @@ const ToDo = ({
       {title}
 
     </a>
+    &nbsp;
+    {pending ? (
+      <LoadingSpinner height={15} width={15} />
+    ) : null}
   </li>
 );
 ToDo.propTypes = {
@@ -69,7 +76,11 @@ ToDo.propTypes = {
   onToggleTodo: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  isDone: PropTypes.bool.isRequired
+  isDone: PropTypes.bool.isRequired,
+  pending: PropTypes.bool
+};
+ToDo.defaultProps = {
+  pending: false
 };
 
 /**
@@ -120,8 +131,8 @@ const mapDispatchToProps = dispatch => ({
   onToDoClick(id) {
     dispatch(getTodoDetail(id));
   },
-  onToggleTodo(id) {
-    dispatch(toggleToDo(id));
+  onToggleTodo(id, isDone) {
+    dispatch(toggleToDo(id, isDone));
   }
 });
 

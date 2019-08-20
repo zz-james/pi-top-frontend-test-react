@@ -36,7 +36,17 @@ const todos = (state = [], action) => {
         }
         return {
           ...t,
-          isDone: !t.isDone
+          isDone: action.isDone
+        };
+      });
+    case C.TODO_SET_PENDING:
+      return state.map((t) => {
+        if (t.id !== action.id) {
+          return t;
+        }
+        return {
+          ...t,
+          pending: action.pending
         };
       });
     default:

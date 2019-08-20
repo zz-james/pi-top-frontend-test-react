@@ -34,3 +34,16 @@ export const addToDo = data => ({
     }
   })
 });
+
+export const persistToggleToDo = (id, isDone) => ({
+  type: C.ASYNC_TOGGLE_TODO,
+  payload: fetch(`https://backend.pi-top.com/todo-test/v1/todos/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify({
+      isDone
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+});
