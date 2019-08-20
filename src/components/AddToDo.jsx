@@ -11,9 +11,10 @@ import * as C from '../constants/index';
  * @param {dispatch} param0
  */
 const AddToDoWrapped = ({ dispatch }) => {
-  let input$name;
-  let select$color;
-  let textarea$detail;
+  let input$title;
+  let select$priority;
+  let textarea$description;
+  let input$tags;
   return (
     <div className="uk-card uk-card-default uk-width-xlarge">
       <div className="uk-card-header">
@@ -22,34 +23,49 @@ const AddToDoWrapped = ({ dispatch }) => {
       <div className="uk-card-body">
         <input
           className="uk-input" placeholder="Name"
-          ref={(node) => { input$name = node; }}
+          ref={(node) => { input$title = node; }}
         />
         {' '}
         <br />
         {' '}
         <br />
-        Tag:
+        Priority:
         {' '}
-        {/* <select ref={(node) => { select$color = node; }} className="uk-select">
-          <option value={C.RED}>red</option>
-          <option value={C.WHITE}>white</option>
-          <option value={C.OTHER}>other</option>
-        </select> */}
+        <select ref={(node) => { select$priority = node; }} className="uk-select">
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+        </select>
         <br />
         <br />
         <textarea
           className="uk-textarea" rows="5"
-          placeholder="Details" ref={(node) => { textarea$detail = node; }}
+          placeholder="Details" ref={(node) => { textarea$description = node; }}
         />
+        <br />
+        <br />
+        <input
+          className="uk-input" placeholder="Tags (seperate with a space)"
+          ref={(node) => { input$tags = node; }}
+        />    
       </div>
       <div className="uk-card-footer">
         <button
           type="button"
           className="uk-button uk-button-primary" onClick={() => {
-            dispatch(AsyncActions.addToDo(uuidv4(), input$name.value, select$color.value, textarea$detail.value));
-            input$name.value = '';
-            select$color.value = '';
-            textarea$detail.value = '';
+            dispatch(
+              AsyncActions.addToDo({
+                title: input$title.value,
+                priority: parseInt(select$priority.value, 10),
+                description: textarea$description.value,
+                tags: input$tags.value.split(' ')
+              })
+            );
+            input$title.value = '';
+            select$priority.value = '';
+            textarea$description.value = '';
           }
         }
         >
