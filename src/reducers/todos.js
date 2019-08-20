@@ -24,6 +24,12 @@ const todos = (state = [], action) => {
         ...state,
         todo(undefined, action)
       ];
+    case `${C.ASYNC_GET_TODO_DETAILS}_FULFILLED`:
+      return [
+        ...state.slice(0, action.index),
+        action.payload,
+        ...state.slice(action.index + 1)
+      ];
     default:
       return state;
   }
