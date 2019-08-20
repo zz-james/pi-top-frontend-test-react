@@ -14,7 +14,7 @@ const toggleToDoStart = ({ dispatch }) => next => (action) => {
 
 const toggleToDoEnd = ({ dispatch }) => next => (action) => {
   if (action.type === `${C.ASYNC_TOGGLE_TODO}_FULFILLED`) {
-    const id = action.payload.url.split('/').pop();  // not getting anything more useful back from API?
+    const id = action.payload.url.split('/').pop();// not getting anything more useful back from API?
     dispatch(setPending(id, false));
     next(action);
   } else {

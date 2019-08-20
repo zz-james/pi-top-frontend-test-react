@@ -9,7 +9,7 @@ import Footer from './Footer';
 import Checkbox from './Checkbox';
 import LoadingSpinner from './LoadingSpinner';
 import { getTodoDetail } from '../actions/async-actions';
-import { toggleToDo } from '../actions/actions'
+import { toggleToDo } from '../actions/actions';
 import * as C from '../constants/index';
 
 /**

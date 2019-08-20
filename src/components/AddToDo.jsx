@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as AsyncActions from '../actions/async-actions';
-import { setUiMode } from '../actions/actions';
-import * as C from '../constants/index';
 
 
 /**
