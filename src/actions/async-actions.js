@@ -35,6 +35,10 @@ export const addToDo = data => ({
   })
 });
 
+/*
+ * Function persistToggleToDo
+ * Description: Stores the isDone field of a todo  [Todo API](https://backend.pi-top.com/todo-test/v1/todos/:id)
+ */
 export const persistToggleToDo = (id, isDone) => ({
   type: C.ASYNC_TOGGLE_TODO,
   payload: fetch(`https://backend.pi-top.com/todo-test/v1/todos/${id}`, {
@@ -42,6 +46,20 @@ export const persistToggleToDo = (id, isDone) => ({
     body: JSON.stringify({
       isDone
     }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+});
+
+/*
+ * Function clearAllTodos
+ * Description: cleaes all todos  [Todo API](https://backend.pi-top.com/todo-test/v1/reset)
+ */
+export const clearAllTodos = () => ({
+  type: C.ASYNC_CLEAR_ALL_TODOS,
+  payload: fetch('https://backend.pi-top.com/todo-test/v1/reset', {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     }

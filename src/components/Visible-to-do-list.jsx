@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import FilterBar from './FilterBar';
 import Footer from './Footer';
 import Checkbox from './Checkbox';
 import LoadingSpinner from './LoadingSpinner';
@@ -35,7 +35,7 @@ const getVisibleToDos = (
 
 /**
  * renders the individual todo list entry
- * @param {props} param0
+ * @param {props}
  */
 const ToDo = ({
   onClick,
@@ -94,7 +94,7 @@ const ToDoList = ({
 }) => (
   <div className="uk-card uk-card-default uk-width-xlarge">
     <div className="uk-card-header">
-      <Footer />
+      <FilterBar />
     </div>
     <div className="uk-card-body">
       <p>
@@ -114,6 +114,9 @@ const ToDoList = ({
           />
         ))}
       </ul>
+    </div>
+    <div className="uk-card-footer">
+      <Footer />
     </div>
   </div>
 );
