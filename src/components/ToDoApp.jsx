@@ -28,7 +28,7 @@ const ToDoAppWrapped = ({
         <VisibleToDoList />
       ) : null}
 
-      {uimode == C.EDIT ? (
+      {uimode === C.EDIT ? (
         <AddToDo />
       ) : null}
 

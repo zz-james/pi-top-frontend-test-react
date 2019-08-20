@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import uuidv4 from '@bundled-es-modules/uuid/v4';
+import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as AsyncActions from '../actions/async-actions';
 import { setUiMode } from '../actions/actions';
 import * as C from '../constants/index';
@@ -49,7 +49,7 @@ const AddToDoWrapped = ({ dispatch }) => {
         <input
           className="uk-input" placeholder="Tags (seperate with a space)"
           ref={(node) => { input$tags = node; }}
-        />    
+        />
       </div>
       <div className="uk-card-footer">
         <button
@@ -60,7 +60,7 @@ const AddToDoWrapped = ({ dispatch }) => {
                 title: input$title.value,
                 priority: parseInt(select$priority.value, 10),
                 description: textarea$description.value,
-                tags: input$tags.value.split(' ')
+                tags: [...new Set(input$tags.value.split(' '))]
               })
             );
             input$title.value = '';
@@ -74,6 +74,9 @@ const AddToDoWrapped = ({ dispatch }) => {
       </div>
     </div>
   );
+};
+AddToDoWrapped.propTypes = {
+  dispatch: PropTypes.func.isRequired
 };
 
 const AddToDo = connect()(AddToDoWrapped);

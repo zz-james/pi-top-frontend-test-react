@@ -6,14 +6,12 @@ import Header from './Header';
 import ToDoApp from './ToDoApp';
 
 
-const App = ({ store }) => {
-  return (
-    <Provider store={store}>
-      <Header />
-      <ToDoApp uimode={C.LOADING} />
-    </Provider>
-  );
-};
+const App = ({ store }) => (
+  <Provider store={store}>
+    <Header />
+    <ToDoApp uimode={C.LOADING} />
+  </Provider>
+);
 
 App.propTypes = {
   store: PropTypes.object.isRequired,

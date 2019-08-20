@@ -29,7 +29,7 @@ export const addToDo = data => ({
   payload: fetch('https://backend.pi-top.com/todo-test/v1/todos', {
     method: 'POST',
     body: JSON.stringify(data),
-    headers:{
+    headers: {
       'Content-Type': 'application/json'
     }
   })
