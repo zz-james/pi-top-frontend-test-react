@@ -8,7 +8,7 @@ import * as C from '../constants/index';
 // import {AddToDo} from './add-to-do.jsx'
 import VisibleToDoList from './Visible-to-do-list';
 import LoadingSpinner from './LoadingSpinner';
-// import {Details} from './details.jsx'
+import Details from './Details';
 // import {TabBar} from './tab-bar.jsx'
 // import * as C from './constants'
 
@@ -32,11 +32,11 @@ const ToDoAppWrapped = ({
 
       {/* uimode == C.EDIT ? (
         <AddToDo />
-      ) : null}
+      ) : null */}
 
-      {uimode == C.DETAIL ? (
+      {uimode === C.DETAIL ? (
         <Details />
-      ) : null} */}
+      ) : null}
 
     </div>
   );
