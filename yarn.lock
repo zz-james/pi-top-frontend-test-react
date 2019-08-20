@@ -97,6 +97,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bundled-es-modules/uuid@^3.3.2-rc2":
+  version "3.3.2-rc2"
+  resolved "https://registry.yarnpkg.com/@bundled-es-modules/uuid/-/uuid-3.3.2-rc2.tgz#fa5ee0235a306cc417cc5c4687da45e8f60f4036"
+  integrity sha512-Vz1kQejsn++ud+apoxuegRgKfZn3UozBcvBXfVFICIIPsSdgVTF+9tYQQ/qRMZOF/yPZ5YDiWmjrNnaPqN2X8w==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
