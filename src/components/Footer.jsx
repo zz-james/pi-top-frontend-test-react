@@ -1,35 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { clearToDos } from '../actions/actions';
 
-import FilterLink from './FilterLink';
-import * as C from '../constants/index';
-
-
-/**
- * renders links which can be used to filter
- */
-const Footer = () => (
-  <p>
-    Show:
-    {' '}
-    <FilterLink
-      filter={C.SHOW_ALL}
-    >
-      ALL
-    </FilterLink>
-    {' '}
-    <FilterLink
-      filter={C.SHOW_INCOMPLETE}
-    >
-      ACTIVE
-    </FilterLink>
-    {' '}
-    <FilterLink
-      filter={C.SHOW_COMPLETED}
-    >
-      COMPLETE
-    </FilterLink>
-    {' '}
-  </p>
+const Footer = ({ onClick }) => (
+  <button
+    type="button"
+    className="uk-button uk-button-danger"
+    onClick={(e) => {
+      e.preventDefault();
+      onClick();
+    }}
+  >
+    DELETE ALL TODOs
+  </button>
 );
+Footer.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
 
-export default Footer;
+
+const mapDispatchToProps = dispatch => ({
+  onClick() {
+    dispatch(clearToDos());
+  }
+});
+
+const FilterLink = connect(
+  null,
+  mapDispatchToProps
+)(Footer);
+
+export default FilterLink;

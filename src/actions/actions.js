@@ -26,3 +26,7 @@ export const setPending = (id, pending) => ({
   id,
   pending
 });
+
+export const clearToDos = () => ({
+  type: C.CLEAR_ALL_TODOS,
+});

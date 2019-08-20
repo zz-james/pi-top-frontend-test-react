@@ -7,7 +7,12 @@ import { setVisibilityFilter } from '../actions/actions';
 const Link = ({ active, children, onClick }) => {
   if (active) {
     return (
-      <button type="button" className="uk-button uk-button-default disabled">{children}</button>
+      <button
+        type="button" className="uk-button uk-button-default"
+        disabled
+      >
+        {children}
+      </button>
     );
   }
 
