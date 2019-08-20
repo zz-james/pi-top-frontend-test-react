@@ -16,7 +16,6 @@ const todos = (state = [], action) => {
   switch (action.type) {
     case `${C.ASYNC_GET_TODOS}_FULFILLED`:
       return [
-        ...state,
         ...action.payload
       ];
     case C.ADD_TODO:
