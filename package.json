@@ -13,6 +13,7 @@
     "lint": "npm run lint-js && npm run lint-sass"
   },
   "dependencies": {
+    "@bundled-es-modules/uuid": "^3.3.2-rc2",
     "babel-polyfill": "^6.26.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
