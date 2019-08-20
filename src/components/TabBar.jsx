@@ -9,7 +9,8 @@ import * as C from '../constants';
 const TabBar = () => (
   <div className="uk-position-relative tabbar">
     <nav
-      className="uk-navbar-container uk-navbar uk-navbar-transparent uk-position-center" role="navigation"
+      className="uk-navbar-container uk-navbar uk-navbar-transparent uk-position-center"
+      role="navigation"
       aria-label="main navigation"
     >
       <ul className="uk-tab">
