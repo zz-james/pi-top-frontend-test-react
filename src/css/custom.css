@@ -13,3 +13,23 @@ header img {
   display: block;
   height: 100%;
 }
+
+.tabbar {
+  height: 50px;
+  padding-top: 20px;
+}
+
+.uk-list {
+  white-space: nowrap;
+  margin: 5px 0;
+}
+.uk-list a {
+  white-space: pre-wrap;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.uk-list input {
+  vertical-align: top;
+  margin-top: 8px;
+}

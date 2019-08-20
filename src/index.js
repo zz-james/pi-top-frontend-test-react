@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import store from './store';
 
-import './css/app.css';
-import './css/header.css';
+import './css/uikit.css';
+import './css/custom.css';
 
 
 ReactDOM.render(
