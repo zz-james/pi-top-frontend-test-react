@@ -15,7 +15,14 @@ export const setVisibilityFilter = filter => ({
   filter
 });
 
-export const toggleToDo = id => ({
+export const toggleToDo = (id, isDone) => ({
   type: C.TOGGLE_TODO,
-  id
+  id,
+  isDone
+});
+
+export const setPending = (id, pending) => ({
+  type: C.TODO_SET_PENDING,
+  id,
+  pending
 });
