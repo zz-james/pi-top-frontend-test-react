@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import * as AsyncActions from '../actions/async-actions';
 import useMountEffect from '../hooks/hooks';
 import * as C from '../constants/index';
-
-// import {AddToDo} from './add-to-do.jsx'
+import AddToDo from './AddToDo';
 import VisibleToDoList from './Visible-to-do-list';
 import LoadingSpinner from './LoadingSpinner';
 import Details from './Details';
-// import {TabBar} from './tab-bar.jsx'
-// import * as C from './constants'
+import TabBar from './TabBar';
+
 
 const ToDoAppWrapped = ({
   getToDos,
@@ -19,8 +18,7 @@ const ToDoAppWrapped = ({
   useMountEffect(getToDos);
   return (
     <div>
-      {/* <VisibleToDoList /> */}
-      {/* <TabBar /> */}
+      <TabBar />
 
       {uimode === C.LOADING ? (
         <LoadingSpinner height={135} width={135} />
@@ -30,9 +28,9 @@ const ToDoAppWrapped = ({
         <VisibleToDoList />
       ) : null}
 
-      {/* uimode == C.EDIT ? (
+      {uimode == C.EDIT ? (
         <AddToDo />
-      ) : null */}
+      ) : null}
 
       {uimode === C.DETAIL ? (
         <Details />
