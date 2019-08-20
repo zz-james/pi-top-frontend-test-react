@@ -23,7 +23,7 @@ const ToDoAppWrapped = ({
       {/* <TabBar /> */}
 
       {uimode === C.LOADING ? (
-        <LoadingSpinner height="135" width="135" />
+        <LoadingSpinner height={135} width={135} />
       ) : null}
 
       {uimode === C.LIST ? (
