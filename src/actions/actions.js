@@ -14,3 +14,8 @@ export const setVisibilityFilter = filter => ({
   type: C.SET_VISIBILITY_FILTER,
   filter
 });
+
+export const toggleToDo = id => ({
+  type: C.TOGGLE_TODO,
+  id
+});

@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import Footer from './Footer';
 import Checkbox from './Checkbox';
 import { getTodoDetail } from '../actions/async-actions';
+import { toggleToDo } from '../actions/actions'
 import * as C from '../constants/index';
 
 /**
@@ -37,18 +38,23 @@ const getVisibleToDos = (
  */
 const ToDo = ({
   onClick,
+  onToggleTodo,
   title,
-  id
+  id,
+  isDone
 }) => (
 
   <li className="uk-list">
     <Checkbox
       name={id}
       value="completed"
-      onChange={() => {}}
-      checked
+      onChange={() => {
+        onToggleTodo(id);
+      }}
+      checked={isDone}
     />
     <a
+      style={{ textDecoration: isDone ? 'line-through' : 'none' }}
       onClick={onClick}
       href="#"
       className="uk-button uk-button-text"
@@ -60,8 +66,10 @@ const ToDo = ({
 );
 ToDo.propTypes = {
   onClick: PropTypes.func.isRequired,
+  onToggleTodo: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  isDone: PropTypes.bool.isRequired
 };
 
 /**
@@ -70,15 +78,18 @@ ToDo.propTypes = {
  */
 const ToDoList = ({
   todos,
-  onToDoClick
+  onToDoClick,
+  onToggleTodo
 }) => (
   <div className="uk-card uk-card-default uk-width-xlarge">
     <div className="uk-card-header">
       <Footer />
     </div>
     <div className="uk-card-body">
-      <p className="uk-card-title">
-        Click the ToDo to see details
+      <p>
+        Click the ToDo to see details.
+        <br />
+        Hit the checkbox to toggle complete
       </p>
       <ul>
         {todos.map(todo => (
@@ -88,6 +99,7 @@ const ToDoList = ({
               e.preventDefault();
               onToDoClick(todo.id);
             }}
+            onToggleTodo={onToggleTodo}
           />
         ))}
       </ul>
@@ -96,7 +108,8 @@ const ToDoList = ({
 );
 ToDoList.propTypes = {
   todos: PropTypes.array.isRequired,
-  onToDoClick: PropTypes.func.isRequired
+  onToDoClick: PropTypes.func.isRequired,
+  onToggleTodo: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -106,6 +119,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onToDoClick(id) {
     dispatch(getTodoDetail(id));
+  },
+  onToggleTodo(id) {
+    dispatch(toggleToDo(id));
   }
 });
 

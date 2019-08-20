@@ -29,6 +29,16 @@ const todos = (state = [], action) => {
         action.payload,
         ...state.slice(action.index + 1)
       ];
+    case C.TOGGLE_TODO:
+      return state.map((t) => {
+        if (t.id !== action.id) {
+          return t;
+        }
+        return {
+          ...t,
+          isDone: !t.isDone
+        };
+      });
     default:
       return state;
   }
