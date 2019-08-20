@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import {Footer} from './footer.jsx'
+import Footer from './Footer';
+import Checkbox from './Checkbox';
 import { getTodoDetail } from '../actions/async-actions';
 import * as C from '../constants/index';
 
@@ -20,6 +22,10 @@ const getVisibleToDos = (
   switch (filter) {
     case C.SHOW_ALL:
       return todos;
+    case C.SHOW_COMPLETED:
+      return todos.filter(t => t.isDone === true);
+    case C.SHOW_INCOMPLETE:
+      return todos.filter(t => t.isDone === false);
     default:
       return todos;
   }
@@ -32,14 +38,30 @@ const getVisibleToDos = (
 const ToDo = ({
   onClick,
   title,
+  id
 }) => (
-  <li onClick={onClick}>
-    <span className="uk-button uk-button-text">{title}</span>
+
+  <li className="uk-list">
+    <Checkbox
+      name={id}
+      value="completed"
+      onChange={() => {}}
+      checked
+    />
+    <a
+      onClick={onClick}
+      href="#"
+      className="uk-button uk-button-text"
+    >
+      {title}
+
+    </a>
   </li>
 );
 ToDo.propTypes = {
   onClick: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 /**
@@ -52,20 +74,23 @@ const ToDoList = ({
 }) => (
   <div className="uk-card uk-card-default uk-width-xlarge">
     <div className="uk-card-header">
-      ClickToDo to see details
+      <Footer />
     </div>
     <div className="uk-card-body">
+      <p className="uk-card-title">
+        Click the ToDo to see details
+      </p>
       <ul>
         {todos.map(todo => (
           <ToDo
             key={todo.id} {...todo}
-            onClick={() => onToDoClick(todo.id)}
+            onClick={(e) => {
+              e.preventDefault();
+              onToDoClick(todo.id);
+            }}
           />
         ))}
       </ul>
-    </div>
-    <div className="uk-card-footer">
-      {/* <Footer /> */}
     </div>
   </div>
 );

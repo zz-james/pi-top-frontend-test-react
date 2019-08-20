@@ -9,3 +9,8 @@ export const showDetail = id => ({
   type: C.SHOW_DETAIL,
   id
 });
+
+export const setVisibilityFilter = filter => ({
+  type: C.SET_VISIBILITY_FILTER,
+  filter
+});
