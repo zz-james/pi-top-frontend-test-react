@@ -11,7 +11,9 @@
     __* I have included a tests folder with example tests that you would normally expect for this project *__
 
 # TO DO:
-The big thing not done here is network error handling. This again is due to time constraints. The library I'm using [redux-promise-middleware](https://www.npmjs.com/package/redux-promise-middleware) does make this super simple, there are a few like it, it's not technically difficult to write your own but it's not that interesting either.
+The 2 big things not done here are:
+- Network error handling. This again is due to time constraints. The library I'm using [redux-promise-middleware](https://www.npmjs.com/package/redux-promise-middleware) does make this super simple, there are a few like it, it's not technically difficult to write your own but it's not that interesting either.
+- Accessibility, This is not fully tested for use with keyboard, screen readers or other alternative access methods.
 
 Please do not hesitate to email me or call me. 
 James Smith
