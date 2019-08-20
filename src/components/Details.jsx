@@ -9,12 +9,14 @@ const DetailsWrapped = ({ record }) => (
     </div>
     <div className="uk-card-body">
       <p>{record.description}</p>
+      <p>
+        Tags:&nbsp;
+        {record.tags.join(', ')}
+      </p>
     </div>
     <div className="uk-card-footer">
       <p href="#" className="uk-button uk-button-text">
-        Done:
-        {' '}
-        {record.isDone}
+        {record.isDone ? 'COMPLETED' : 'INCOMPLETE'}
       </p>
     </div>
   </div>

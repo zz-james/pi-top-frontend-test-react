@@ -7,26 +7,28 @@ import * as C from '../constants';
  * renders component to allow switching between adding a new todo and viewing todo info
  */
 const TabBar = () => (
-  <nav
-    className="uk-navbar-container uk-navbar uk-navbar-transparent" role="navigation"
-    aria-label="main navigation"
-  >
-    <ul className="uk-tab">
+  <div className="uk-position-relative tabbar">
+    <nav
+      className="uk-navbar-container uk-navbar uk-navbar-transparent uk-position-center" role="navigation"
+      aria-label="main navigation"
+    >
+      <ul className="uk-tab">
 
-      <TabLink
-        mode={C.LIST}
-      >
-        VIEW ALL
-      </TabLink>
+        <TabLink
+          mode={C.LIST}
+        >
+          VIEW TO-DOs
+        </TabLink>
 
-      <TabLink
-        mode={C.EDIT}
-      >
-        ADD NEW
-      </TabLink>
+        <TabLink
+          mode={C.EDIT}
+        >
+          ADD NEW
+        </TabLink>
 
-    </ul>
-  </nav>
+      </ul>
+    </nav>
+  </div>
 );
 
 export default TabBar;
