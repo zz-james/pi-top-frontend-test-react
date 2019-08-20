@@ -19,3 +19,7 @@ export const getTodoDetail = id => ({
   payload: fetch(`https://backend.pi-top.com/todo-test/v1/todos/${id}`)
     .then(response => response.json()),
 });
+
+export const addToDo = () => {
+  console.log('add to do');
+}
